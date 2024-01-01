@@ -68,6 +68,9 @@ __all__ = (
 # You can also type <prefix>help category for more info on a category.
 
 
+IGNORED_COMMAND_TYPES = (discord.commands.ApplicationCommand,)
+
+
 class Paginator:
     """A class that aids in paginating code blocks for Discord messages.
 
@@ -576,7 +579,7 @@ class HelpCommand:
         prefix_commands = [
             command
             for command in commands
-            if not isinstance(command, discord.commands.ApplicationCommand)
+            if not isinstance(command, IGNORED_COMMAND_TYPES)
         ]
         iterator = (
             prefix_commands

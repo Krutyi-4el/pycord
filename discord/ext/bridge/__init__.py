@@ -26,3 +26,8 @@ DEALINGS IN THE SOFTWARE.
 from .bot import *
 from .context import *
 from .core import *
+
+from ..commands import help
+
+help.IGNORED_COMMAND_TYPES += (BridgeCommand,)
+del help
